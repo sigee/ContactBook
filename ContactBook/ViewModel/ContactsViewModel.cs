@@ -8,6 +8,7 @@ namespace ContactBook.ViewModel
     public class ContactsViewModel : ObservableObject
     {
         public ICommand DeleteCommand { get; private set; }
+        public ICommand EditCommand { get; private set; }
 
         public ObservableCollection<Contact> Contacts { get; private set; }
 
@@ -15,7 +16,11 @@ namespace ContactBook.ViewModel
         public Contact SelectedContact
         {
             get { return _selectedContact; }
-            set { OnPropertyChanged(ref _selectedContact, value); }
+            set
+            {
+                OnPropertyChanged(ref _selectedContact, value);
+                IsEditMode = false;
+            }
         }
 
         private bool _isEditMode;
@@ -41,6 +46,7 @@ namespace ContactBook.ViewModel
             Contacts.Add(new Contact(){Name="Teszt Elek 2"});
             Contacts.Add(new Contact(){Name="Teszt Elek 3"});
             DeleteCommand = new RelayCommand(Delete, CanDelete);
+            EditCommand = new RelayCommand(Edit, CanEdit);
         }
 
         private bool CanDelete()
@@ -51,6 +57,19 @@ namespace ContactBook.ViewModel
         private void Delete()
         {
             Contacts.Remove(SelectedContact);
+        }
+
+        private bool CanEdit()
+        {
+            if (SelectedContact == null)
+                return false;
+
+            return !IsEditMode;
+        }
+
+        private void Edit()
+        {
+            IsEditMode = true;
         }
     }
 }

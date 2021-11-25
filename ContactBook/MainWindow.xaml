@@ -39,7 +39,7 @@
                     </Button.Content>
                 </Button>
 
-                <Button Style="{StaticResource TopDockIconButton}">
+                <Button Style="{StaticResource TopDockIconButton}" Command="{Binding BookViewModel.ContactsViewModel.EditCommand}">
                     <Button.Content>
                         <Image Height="30" Width="30" Source="pack://siteoforigin:,,,/Resources/createIcon.png" />
                     </Button.Content>
