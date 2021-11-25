@@ -29,11 +29,12 @@ namespace ContactBook.ViewModel
 
         private bool CanDelete()
         {
-            return false;
+            return SelectedContact != null;
         }
 
         private void Delete()
         {
+            Contacts.Remove(SelectedContact);
         }
     }
 }
