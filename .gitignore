@@ -1,3 +1,6 @@
 .idea/
 ContactBook/obj
 ContactBook/bin
+ContactBook.UnitTests/obj
+ContactBook.UnitTests/bin
+packages
