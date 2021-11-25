@@ -16,7 +16,7 @@
                Source="pack://siteoforigin:,,,/Resources/defaultContact.png"/>
 
         <StackPanel Grid.Column="1" Margin="5" VerticalAlignment="Center">
-            <Label FontSize="18" Content="N/A" />
+            <Label FontSize="18" Content="{Binding Name, FallbackValue=N/A}" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -14,10 +14,12 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <ListView>
-                <ListViewItem>
-                    <v:ContactItemView/>
-                </ListViewItem>  
+            <ListView ItemsSource="{Binding ContactsViewModel.Contacts}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <v:ContactItemView/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
 

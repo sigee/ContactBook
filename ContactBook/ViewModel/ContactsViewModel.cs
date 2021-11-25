@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
+using ContactBook.Model;
 using ContactBook.Utility;
 
 namespace ContactBook.ViewModel
@@ -7,8 +9,14 @@ namespace ContactBook.ViewModel
     {
         public ICommand DeleteCommand { get; private set; }
 
+        public ObservableCollection<Contact> Contacts { get; private set; }
+
         public ContactsViewModel()
         {
+            Contacts = new ObservableCollection<Contact>();
+            Contacts.Add(new Contact(){Name="Teszt Elek"});
+            Contacts.Add(new Contact(){Name="Teszt Elek 2"});
+            Contacts.Add(new Contact(){Name="Teszt Elek 3"});
             DeleteCommand = new RelayCommand(Delete, CanDelete);
         }
 
