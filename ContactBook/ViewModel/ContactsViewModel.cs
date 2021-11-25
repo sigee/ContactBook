@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using ContactBook.Model;
 using ContactBook.Utility;
@@ -42,9 +44,7 @@ namespace ContactBook.ViewModel
         public ContactsViewModel()
         {
             Contacts = new ObservableCollection<Contact>();
-            Contacts.Add(new Contact(){Name="Teszt Elek"});
-            Contacts.Add(new Contact(){Name="Teszt Elek 2"});
-            Contacts.Add(new Contact(){Name="Teszt Elek 3"});
+            LoadContacts();
             DeleteCommand = new RelayCommand(Delete, CanDelete);
             EditCommand = new RelayCommand(Edit, CanEdit);
         }
@@ -70,6 +70,25 @@ namespace ContactBook.ViewModel
         private void Edit()
         {
             IsEditMode = true;
+        }
+
+        public void LoadContacts()
+        {
+            Contacts.Clear();
+            Contacts.Add(new Contact(){Name="Teszt Elek", PhoneNumbers = new[]{"06-20-123-45-67", "06-30-123-45-67"}, Emails = new string[2], Locations = new string[2], IsFavorite = true});
+            Contacts.Add(new Contact(){Name="Teszt Elek 2", PhoneNumbers = new[]{"06-70-123-45-67", "06-20-123-45-67"}});
+            Contacts.Add(new Contact(){Name="Teszt Elek 3"});
+        }
+
+        public void LoadFavorites()
+        {
+            LoadContacts();
+            List<Contact> tmp = Contacts.ToList();
+            Contacts.Clear();
+            foreach (var c in tmp.Where(c => c.IsFavorite))
+            {
+                Contacts.Add(c);
+            }
         }
     }
 }

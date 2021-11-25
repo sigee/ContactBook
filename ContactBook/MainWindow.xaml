@@ -25,11 +25,13 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Button Style="{StaticResource TopDockButton}" Content="Favorite" />
+                <Button Style="{StaticResource TopDockButton}" Content="Favorite"
+                        Command="{Binding BookViewModel.LoadFavoritesCommand}"/>
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Style="{StaticResource TopDockButton}" Content="Contacts" />
+                <Button Style="{StaticResource TopDockButton}" Content="Contacts"
+                        Command="{Binding BookViewModel.LoadContactsCommand}"/>
             </Grid>
 
             <StackPanel Grid.Column="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
