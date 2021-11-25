@@ -11,6 +11,13 @@ namespace ContactBook.ViewModel
 
         public ObservableCollection<Contact> Contacts { get; private set; }
 
+        private Contact _selectedContact;
+        public Contact SelectedContact
+        {
+            get { return _selectedContact; }
+            set { OnPropertyChanged(ref _selectedContact, value); }
+        }
+
         public ContactsViewModel()
         {
             Contacts = new ObservableCollection<Contact>();

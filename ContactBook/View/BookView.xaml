@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <ListView ItemsSource="{Binding ContactsViewModel.Contacts}">
+            <ListView ItemsSource="{Binding ContactsViewModel.Contacts}"  SelectedItem="{Binding ContactsViewModel.SelectedContact}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <v:ContactItemView/>
