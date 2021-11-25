@@ -18,6 +18,22 @@ namespace ContactBook.ViewModel
             set { OnPropertyChanged(ref _selectedContact, value); }
         }
 
+        private bool _isEditMode;
+        public bool IsEditMode
+        {
+            get { return _isEditMode; }
+            set
+            {
+                OnPropertyChanged(ref _isEditMode, value);
+                OnPropertyChanged("IsDisplayMode");
+            }
+        }
+        public bool IsDisplayMode
+        {
+            get { return !_isEditMode; }
+        }
+
+
         public ContactsViewModel()
         {
             Contacts = new ObservableCollection<Contact>();

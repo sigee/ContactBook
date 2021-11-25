@@ -23,8 +23,11 @@
             <StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel HorizontalAlignment="Center">
-                        <TextBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5" Text="N/A"/>
-                        <Label HorizontalAlignment="Center" FontSize="24"/>
+                        <TextBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5"
+                                 Text="{Binding SelectedContact.Name, FallbackValue=NULL, Mode=TwoWay}"
+                                 Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
+                        <Label HorizontalAlignment="Center" FontSize="24" Content="{Binding SelectedContact.Name,FallbackValue=NULL}"
+                               Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
                     </StackPanel>
                     <CheckBox Style="{StaticResource FavoriteCheckbox}"/>
                 </StackPanel>
@@ -60,12 +63,12 @@
 
                 <StackPanel>
                     <Label Style="{StaticResource DetailLabel}" Content="Home"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="Hidden"/>
+                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}"/>
 
                     <Label Style="{StaticResource DetailLabel}"  Content="Cell"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="Hidden" />
+                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -78,12 +81,12 @@
 
                 <StackPanel>
                     <Label Style="{StaticResource DetailLabel}" Content="Personal"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="Hidden" />
+                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
 
                     <Label Style="{StaticResource DetailLabel}"  Content="Work"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="Hidden" />
+                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -96,12 +99,12 @@
 
                 <StackPanel>
                     <Label Style="{StaticResource DetailLabel}" Content="Home"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="Hidden" />
+                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
 
                     <Label Style="{StaticResource DetailLabel}"  Content="Work"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="Hidden" />
+                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>

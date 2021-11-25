@@ -51,6 +51,8 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Helper\BoolToVisibilityConverter.cs" />
+        <Compile Include="Helper\NullToVisibilityConverter.cs" />
         <Compile Include="Model\Contact.cs" />
         <Compile Include="Utility\ObservableObject.cs" />
         <Compile Include="Utility\RelayCommand.cs" />
