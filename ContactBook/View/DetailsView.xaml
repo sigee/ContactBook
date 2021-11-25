@@ -89,12 +89,20 @@
 
                 <StackPanel>
                     <Label Style="{StaticResource DetailLabel}" Content="Personal"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
+                    <Label Style="{StaticResource ContentLabel}" 
+                           Content="{Binding SelectedContact.Emails[0], FallbackValue=NULL, Mode=TwoWay}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}"
+                             Text="{Binding SelectedContact.Emails[0], FallbackValue=NULL, Mode=TwoWay}"
+                             Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
 
                     <Label Style="{StaticResource DetailLabel}"  Content="Work"/>
-                    <Label Style="{StaticResource ContentLabel}" Content="N/A" Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
-                    <TextBox Style="{StaticResource EditBox}" Text="N/A" Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
+                    <Label Style="{StaticResource ContentLabel}" 
+                           Content="{Binding SelectedContact.Emails[1], FallbackValue=NULL, Mode=TwoWay}"
+                           Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}" />
+                    <TextBox Style="{StaticResource EditBox}"
+                             Text="{Binding SelectedContact.Emails[1], FallbackValue=NULL, Mode=TwoWay}"
+                             Visibility="{Binding IsEditMode, Converter={StaticResource IsEditConverter}}" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
