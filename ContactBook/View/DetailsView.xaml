@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ContactBook.View"
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="450">
-    <Grid>
+    <Grid Visibility="{Binding SelectedContact, Converter={StaticResource SelectedContactConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
