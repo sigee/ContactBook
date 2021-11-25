@@ -11,6 +11,7 @@ namespace ContactBook.ViewModel
     {
         public ICommand DeleteCommand { get; private set; }
         public ICommand EditCommand { get; private set; }
+        public ICommand AddCommand { get; private set; }
 
         public ObservableCollection<Contact> Contacts { get; private set; }
 
@@ -47,6 +48,7 @@ namespace ContactBook.ViewModel
             LoadContacts();
             DeleteCommand = new RelayCommand(Delete, CanDelete);
             EditCommand = new RelayCommand(Edit, CanEdit);
+            AddCommand = new RelayCommand(Add);
         }
 
         private bool CanDelete()
@@ -70,6 +72,20 @@ namespace ContactBook.ViewModel
         private void Edit()
         {
             IsEditMode = true;
+        }
+
+        private void Add()
+        {
+            var newContact = new Contact
+            {
+                Name = "N/A",
+                PhoneNumbers = new string[2],
+                Emails = new string[2],
+                Locations = new string[2]
+            };
+
+            Contacts.Add(newContact);
+            SelectedContact = newContact;
         }
 
         public void LoadContacts()
