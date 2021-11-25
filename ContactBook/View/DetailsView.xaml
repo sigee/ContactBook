@@ -29,7 +29,7 @@
                         <Label HorizontalAlignment="Center" FontSize="24" Content="{Binding SelectedContact.Name,FallbackValue=NULL}"
                                Visibility="{Binding IsDisplayMode, Converter={StaticResource IsEditConverter}}"/>
                     </StackPanel>
-                    <CheckBox Style="{StaticResource FavoriteCheckbox}"/>
+                    <CheckBox Style="{StaticResource FavoriteCheckbox}" IsChecked="{Binding SelectedContact.IsFavorite}"/>
                 </StackPanel>
                 <Grid Height="125" Width="125">
                     <Image Height="125" Width="125" Source="pack://siteoforigin:,,,/Resources/defaultContact.png" />
