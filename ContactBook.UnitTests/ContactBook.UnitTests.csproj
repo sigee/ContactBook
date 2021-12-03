@@ -33,6 +33,7 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="PresentationCore" />
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -51,6 +52,8 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Helper\BoolToVisibilityConverterTest.cs" />
+        <Compile Include="Helper\NullToVisibilityConverterTest.cs" />
         <Compile Include="Tests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
